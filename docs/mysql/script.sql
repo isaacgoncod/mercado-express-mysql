@@ -8,7 +8,8 @@ CREATE TABLE
   vendedor (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
-    matricula INT NOT NULL
+    matricula INT NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
   );
 
 CREATE TABLE
@@ -32,13 +33,13 @@ CREATE TABLE
 CREATE VIEW
   total_vendas AS
 SELECT
+  vendas.data_venda,
   produto.nome AS nome_produto,
-  SUM(vendas.quantidade) AS total_vendido
+  vendedor.nome AS nome_vendedor
 FROM
   vendas
   INNER JOIN produto ON vendas.produto_id = produto.id
-GROUP BY
-  produto.nome;
+  INNER JOIN vendedor ON vendas.vendedor_id = vendedor.id;
 
 CREATE VIEW
   total_valor_vendas AS

@@ -1,14 +1,13 @@
-const loginEmail = document.querySelector("#loginName");
-const loginSenha = document.querySelector("#loginPassword");
-const registerNome = document.querySelector("#registerName");
-const registerEmail = document.querySelector("#registerEmail");
-const registerSenha = document.querySelector("#registerPassword");
-const registerTel1 = document.querySelector("#registerTel1");
-const registerTel2 = document.querySelector("#registerTel2");
+const loginMatricula = document.querySelector("#loginMatricula");
+const loginSenha = document.querySelector("#loginSenha");
+const registerNome = document.querySelector("#registerNome");
+const registerMatricula = document.querySelector("#registerMatricula");
+const registerSenha = document.querySelector("#registerSenha");
+const registerConfirmSenha = document.querySelector("#registerConfirmSenha");
 
 function autenticar() {
   let data = {
-    email: loginEmail.value,
+    matricula: loginMatricula.value,
     senha: loginSenha.value,
   };
 
@@ -36,33 +35,35 @@ function autenticar() {
 }
 
 function registrar() {
-  let data = {
-    nome: registerNome.value,
-    email: registerEmail.value,
-    senha: registerSenha.value,
-    telefone1: registerTel1.value,
-    telefone2: registerTel2.value,
-  };
+  if (registerSenha.value !== registerConfirmSenha.value) {
+    alert("As Senhas não conferem");
+  } else {
+    let data = {
+      nome: registerNome.value,
+      matricula: registerMatricula.value,
+      senha: registerSenha.value,
+    };
 
-  let options = {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(data),
-  };
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
 
-  fetch("http://localhost:3000/cliente/add", options)
-    .then((resp) => {
-      return resp.json();
-    })
-    .then((info) => {
-      if (info != undefined) {
-        localStorage.setItem("user", JSON.stringify(info));
+    fetch("http://localhost:3000/vendedor/create", options)
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((info) => {
+        if (info != undefined) {
+          localStorage.setItem("user", JSON.stringify(info));
 
-        window.location.href = "../pages/login.html";
-      } else {
-        alert(info.msg);
-      }
-    });
+          window.location.href = "../pages/login.html";
+        } else {
+          alert(info.msg);
+        }
+      });
+  }
 }

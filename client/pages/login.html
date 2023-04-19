@@ -48,7 +48,7 @@
             role="tab"
             aria-controls="pills-register"
             aria-selected="false"
-            >Register</a
+            >Cadastrar</a
           >
         </li>
       </ul>
@@ -64,10 +64,8 @@
           <form>
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="email" id="loginEmail" class="form-control" />
-              <label class="form-label" for="loginEmail"
-                >Email or username</label
-              >
+              <input type="text" id="loginMatricula" class="form-control" />
+              <label class="form-label" for="loginMatricula">Matricula</label>
             </div>
             <!-- Password input -->
             <div class="form-outline mb-4">
@@ -93,8 +91,12 @@
               </div>
             </div>
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">
-              Sign in
+            <button
+              type="submit"
+              class="btn btn-primary btn-block mb-4"
+              onclick="autenticar()"
+            >
+              Login
             </button>
             <!-- Register buttons -->
             <div class="text-center">
@@ -111,37 +113,30 @@
           <form>
             <!-- Name input -->
             <div class="form-outline mb-4">
-              <input type="text" id="registerName" class="form-control" />
-              <label class="form-label" for="registerName">Name</label>
+              <input type="text" id="registerNome" class="form-control" />
+              <label class="form-label" for="registerNome">Nome</label>
             </div>
-            <!-- Username input -->
+            <!-- Matricula input -->
             <div class="form-outline mb-4">
-              <input type="text" id="registerUsername" class="form-control" />
-              <label class="form-label" for="registerUsername">Username</label>
-            </div>
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="registerEmail" class="form-control" />
-              <label class="form-label" for="registerEmail">Email</label>
+              <input type="text" id="registerMatricula" class="form-control" />
+              <label class="form-label" for="registerMatricula"
+                >Matricula</label
+              >
             </div>
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <input
-                type="password"
-                id="registerPassword"
-                class="form-control"
-              />
-              <label class="form-label" for="registerPassword">Password</label>
+              <input type="password" id="registerSenha" class="form-control" />
+              <label class="form-label" for="registerSenha">Senha</label>
             </div>
             <!-- Repeat Password input -->
             <div class="form-outline mb-4">
               <input
                 type="password"
-                id="registerRepeatPassword"
+                id="registerConfirmSenha"
                 class="form-control"
               />
-              <label class="form-label" for="registerRepeatPassword"
-                >Repeat password</label
+              <label class="form-label" for="registerConfirmSenha"
+                >Repita a senha</label
               >
             </div>
             <!-- Checkbox -->
@@ -159,8 +154,12 @@
               </label>
             </div>
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-3">
-              Sign in
+            <button
+              type="submit"
+              class="btn btn-primary btn-block mb-3"
+              onclick="registrar()"
+            >
+              cadastrar
             </button>
           </form>
         </div>

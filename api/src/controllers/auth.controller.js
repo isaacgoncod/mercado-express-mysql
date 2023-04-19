@@ -1,9 +1,9 @@
 const conn = require("../database/connect");
 
-const authCliente = (req, res) => {
-  const { email, senha } = req.body;
+const authVendedor = (req, res) => {
+  const { matricula, senha } = req.body;
 
-  const query = `SELECT * FROM cliente WHERE email = '${email}' AND senha = '${senha}'`;
+  const query = `SELECT * FROM vendedor WHERE matricula = ${matricula} AND senha = '${senha}'`;
 
   conn.query(query, function (err, resp) {
     if (err) {
@@ -17,8 +17,6 @@ const authCliente = (req, res) => {
 
     if (clientePass) {
       delete clientePass.senha;
-      delete clientePass.telefone_1;
-      delete clientePass.telefone_2;
     }
 
     res.status(200).json(clientePass).end();
@@ -26,5 +24,5 @@ const authCliente = (req, res) => {
 };
 
 module.exports = {
-  authCliente,
+  authVendedor,
 };
