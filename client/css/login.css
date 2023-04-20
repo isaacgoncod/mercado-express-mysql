@@ -4,9 +4,9 @@ body {
   overflow-x: hidden;
 }
 main {
-  max-width: 50%;
+  max-width: 25rem;
   height: 1000px;
-  margin: 50px auto;
+  margin: 200px auto;
 }
 main form {
   width: 100%;

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="./homeVendas.html">Vendas</a></li>
+        <li><a href="./login.html">Sign-Up</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- MODAL FORM UPDATE -->
+      <div
+        class="modal fade"
+        id="myModalFormUpdate"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-mdb-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+              <div class="form">
+                <form>
+                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                  <div class="row mb-4">
+                    <div class="col">
+                      <div class="form-outline mb-4">
+                        <input
+                          type="test"
+                          id="updateMatricula"
+                          class="form-control"
+                          required
+                        />
+                        <label class="form-label" for="updateMatricula"
+                          >Matricula</label
+                        >
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input
+                          type="text"
+                          id="updateNome"
+                          class="form-control"
+                          required
+                        />
+                        <label class="form-label" for="updateNome">Nome</label>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input
+                          type="password"
+                          id="updateSenha"
+                          class="form-control"
+                          required
+                        />
+                        <label class="form-label" for="updateSenha"
+                          >Senha</label
+                        >
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input
+                          type="password"
+                          id="updateConfirmSenha"
+                          class="form-control"
+                          required
+                        />
+                        <label class="form-label" for="updateConfirmSenha"
+                          >Confirmar Senha</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Submit button -->
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    onclick="updateVendedor()"
+                  >
+                    Atualizar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Matricula</th>
+              <th>Opções</th>
+            </tr>
+          </thead>
+          <tbody id="corpo"></tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+  <script src="../js/homeVendedor.js"></script>
+  <!-- MDB -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
+  ></script>
+</html>

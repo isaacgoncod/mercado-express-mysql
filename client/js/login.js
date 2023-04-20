@@ -27,7 +27,7 @@ function autenticar() {
       if (info.id != undefined) {
         localStorage.setItem("user", JSON.stringify(info));
 
-        window.location.href = "../pages/home.html";
+        window.location.href = "../pages/homeVendedor.html";
       } else {
         alert(info.msg);
       }

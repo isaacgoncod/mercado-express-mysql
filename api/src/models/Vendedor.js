@@ -15,7 +15,7 @@ class Vendedor {
   }
 
   update() {
-    return `UPDATE vendedor SET nome = "${this.nome}", matricula = ${this.matricula}, senha = "${this.senha}" WHERE id = ${this.id}`;
+    return `UPDATE vendedor SET nome = "${this.nome}", senha = "${this.senha}" WHERE matricula = ${this.matricula}`;
   }
 
   del() {
