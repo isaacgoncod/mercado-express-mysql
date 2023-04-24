@@ -2,15 +2,51 @@ const url = "http://localhost:3000/vendas";
 //MODAL FORM
 const registerDataVenda = document.querySelector("#registerDataVenda");
 const registerQuantidade = document.querySelector("#registerQuantidade");
-const registerProdutoId = document.querySelector("#registerProdutoId");
-const registerVendedorId = document.querySelector("#registerVendedorId");
+const selectProduto = document.querySelector("#queryProduto");
+const selectVendedor = document.querySelector("#queryVendedor");
+const selectUpdateProduto = document.querySelector("#queryUpdateProduto");
+const selectUpdateVendedor = document.querySelector("#queryUpdateVendedor");
+
+fetch("http://localhost:3000/produto/listar", { method: "GET" })
+  .then((response) => response.json())
+  .then((produtos) => {
+    produtos.forEach((produto) => {
+      const option = document.createElement("option");
+      option.value = produto.id;
+      option.textContent = produto.nome;
+      selectProduto.appendChild(option);
+
+      const optionUpdate = document.createElement("option");
+      optionUpdate.value = produto.id;
+      optionUpdate.textContent = produto.nome;
+      selectUpdateProduto.appendChild(optionUpdate);
+    });
+  })
+  .catch((error) => console.error(error));
+
+fetch("http://localhost:3000/vendedor/listar", { method: "GET" })
+  .then((response) => response.json())
+  .then((vendedores) => {
+    vendedores.forEach((vendedor) => {
+      const option = document.createElement("option");
+      option.value = vendedor.id;
+      option.textContent = vendedor.nome;
+      selectVendedor.appendChild(option);
+
+      const optionUpdate = document.createElement("option");
+      optionUpdate.value = vendedor.id;
+      optionUpdate.textContent = vendedor.nome;
+      selectUpdateVendedor.appendChild(optionUpdate);
+    });
+  })
+  .catch((error) => console.error(error));
 
 function registerVenda() {
   let data = {
     dataVenda: registerDataVenda.value,
     quantidade: registerQuantidade.value,
-    produtoId: registerProdutoId.value,
-    vendedorId: registerVendedorId.value,
+    produtoId: selectProduto.value,
+    vendedorId: selectVendedor.value,
   };
 
   let options = {
@@ -49,23 +85,21 @@ fetch(url + "/listar/venda", { method: "GET" })
 function montarTabela(vetor) {
   vetor.forEach((e) => {
     let linha = document.createElement("tr");
+    let colId = document.createElement("td");
     let col1 = document.createElement("td");
     let col2 = document.createElement("td");
     let col3 = document.createElement("td");
     let col4 = document.createElement("td");
     let col5 = document.createElement("td");
-    let col6 = document.createElement("td");
-    let col7 = document.createElement("td");
 
     let buttonDel = document.createElement("button");
     let btnUpdate = document.createElement("button");
 
+    colId.innerHTML = e.id;
     col1.innerHTML = formatarData(e.data_venda);
     col2.innerHTML = e.quantidade;
-    col4.innerHTML = e.produto_id;
-    col5.innerHTML = e.nome_produto;
-    col6.innerHTML = e.vendedor_id;
-    col7.innerHTML = e.nome_vendedor;
+    col4.innerHTML = e.nome_produto;
+    col5.innerHTML = e.nome_vendedor;
 
     buttonDel.innerHTML = "Excluir";
     btnUpdate.innerHTML = "Alterar";
@@ -83,12 +117,11 @@ function montarTabela(vetor) {
 
     btnUpdate.className = "btn btn-secondary";
 
+    linha.appendChild(colId);
     linha.appendChild(col1);
     linha.appendChild(col2);
-    linha.appendChild(col5);
     linha.appendChild(col4);
-    linha.appendChild(col7);
-    linha.appendChild(col6);
+    linha.appendChild(col5);
     linha.appendChild(col3);
     col3.appendChild(btnUpdate);
     col3.appendChild(buttonDel);
@@ -119,8 +152,8 @@ function updateVenda() {
     id: updateId.value,
     dataVenda: updateDataVenda.value,
     quantidade: updateQuantidade.value,
-    produtoId: updateProdutoId.value,
-    vendedorId: updateVendedorId.value,
+    produtoId: selectUpdateProduto.value,
+    vendedorId: selectUpdateVendedor.value,
   };
 
   let options = {

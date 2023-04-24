@@ -36,9 +36,7 @@ SELECT
   vendas.id,
   vendas.data_venda,
   vendas.quantidade,
-  produto.id AS produto_id,
   produto.nome AS nome_produto,
-  vendedor.id AS vendedor_id,
   vendedor.nome AS nome_vendedor
 FROM
   vendas

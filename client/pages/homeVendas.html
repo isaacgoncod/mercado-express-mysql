@@ -90,29 +90,20 @@
                       >Quantidade</label
                     >
                   </div>
-                  <!-- Text input -->
-                  <div class="form-outline mb-4">
-                    <input
-                      type="text"
-                      id="registerProdutoId"
-                      class="form-control"
-                      required
-                    />
-                    <label class="form-label" for="registerProdutoId"
-                      >Produto ID</label
-                    >
+
+                  <div class="option">
+                    <select class="form-control select-label" id="queryProduto">
+                      <option value="0">Selecione um Produto</option>
+                    </select>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input
-                      type="text"
-                      id="registerVendedorId"
-                      class="form-control"
-                      required
-                    />
-                    <label class="form-label" for="registerVendedorId"
-                      >Vendedor ID</label
+                  <div class="option">
+                    <select
+                      class="form-control select-label"
+                      id="queryVendedor"
                     >
+                      <option value="0">Selecione um Vendedor</option>
+                    </select>
                   </div>
 
                   <!-- Submit button -->
@@ -156,7 +147,7 @@
                     <div class="col">
                       <div class="form-outline">
                         <input
-                          type="text"
+                          type="number"
                           id="updateId"
                           class="form-control"
                           required
@@ -165,6 +156,7 @@
                       </div>
                     </div>
                   </div>
+                  <!-- Text input -->
                   <div class="form-outline mb-4">
                     <input
                       type="date"
@@ -174,10 +166,10 @@
                     />
                     <label class="form-label" for="updateDataVenda">Data</label>
                   </div>
-                  <!-- Text input -->
+
                   <div class="form-outline mb-4">
                     <input
-                      type="text"
+                      type="number"
                       id="updateQuantidade"
                       class="form-control"
                       required
@@ -186,29 +178,23 @@
                       >Quantidade</label
                     >
                   </div>
-                  <!-- Text input -->
-                  <div class="form-outline mb-4">
-                    <input
-                      type="text"
-                      id="updateProdutoId"
-                      class="form-control"
-                      required
-                    />
-                    <label class="form-label" for="updateProdutoId"
-                      >Produto ID</label
+
+                  <div class="option">
+                    <select
+                      class="form-control select-label"
+                      id="queryUpdateProduto"
                     >
+                      <option value="0">Selecione um Produto</option>
+                    </select>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input
-                      type="text"
-                      id="updateVendedorId"
-                      class="form-control"
-                      required
-                    />
-                    <label class="form-label" for="updateVendedorId"
-                      >Vendedor ID</label
+                  <div class="option">
+                    <select
+                      class="form-control select-label"
+                      id="queryUpdateVendedor"
                     >
+                      <option value="0">Selecione um Vendedor</option>
+                    </select>
                   </div>
                   <!-- Submit button -->
                   <button
@@ -229,12 +215,11 @@
         <table class="table table-hover table-decorator">
           <thead>
             <tr>
+              <th>ID</th>
               <th>Data</th>
               <th>Quantidade</th>
               <th>Produto</th>
-              <th>ID</th>
               <th>Vendedor</th>
-              <th>ID</th>
               <th>Opções</th>
             </tr>
           </thead>
