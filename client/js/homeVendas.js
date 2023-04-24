@@ -114,6 +114,7 @@ function montarTabela(vetor) {
     btnUpdate.setAttribute("type", "button");
     btnUpdate.setAttribute("data-mdb-toggle", "modal");
     btnUpdate.setAttribute("data-mdb-target", "#myModalFormUpdate");
+    btnUpdate.setAttribute("onclick", `selectUpdateData('${e.id}')`);
 
     btnUpdate.className = "btn btn-secondary";
 
@@ -144,8 +145,6 @@ function delVenda(id) {
 const updateId = document.querySelector("#updateId");
 const updateDataVenda = document.querySelector("#updateDataVenda");
 const updateQuantidade = document.querySelector("#updateQuantidade");
-const updateProdutoId = document.querySelector("#updateProdutoId");
-const updateVendedorId = document.querySelector("#updateVendedorId");
 
 function updateVenda() {
   let data = {
